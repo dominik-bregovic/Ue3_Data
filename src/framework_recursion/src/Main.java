@@ -48,16 +48,20 @@ public class Main {
      * @return the binary number stored in a String
      */
     public static String recursiveMul(int n, String m){
-       //TODO
         if (n == 0){
-            return m += "0";
-        }else {
-            m += "1";
-//            System.out.println(m);
-            recursiveMul(n%2, m);
+            //change direction of number 001 --> 100
+            char[] revertBin = m.toCharArray();
+            m = "";
+            for (int i = revertBin.length-1; i >= 0; i--) {
+                m += revertBin[i];
+            }
             return m;
+        }else {
+            if (n%2==1)
+                return recursiveMul(n / 2, m += "1");
+            else
+                return recursiveMul(n /2,m += "0");
         }
-
     }
 
     /**
