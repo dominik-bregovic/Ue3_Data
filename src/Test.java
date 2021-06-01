@@ -12,7 +12,10 @@ public class Test {
         }*/
 
 
-        System.out.println(recursivePower(3, 3));
+       // System.out.println(recursivePower(3, 3));
+
+        System.out.println(recursiveBinToDec("11010", 0));
+
     }
 
     /*public static String recursiveMul(int n, String m) {
@@ -30,7 +33,7 @@ public class Test {
             else
                 return recursiveMul(n /2,m += "0");
         }
-    }*/
+    }
 
     public static int recursiveSum(int n) {
         if (n==1){
@@ -39,13 +42,28 @@ public class Test {
         else {
             return recursiveSum(n-1)+n;
         }
-    }
+    }*/
 
     public static int recursivePower(int x, int n) {
         if (n == 0){
             return 1;
         }else {
             return recursivePower(x,n-1)*x;
+        }
+    }
+
+    //Funktion is working but is counting from the wrong side
+    public static int recursiveBinToDec(String binary, int decimal) {
+        System.out.println(binary.length()+".......");
+        if (binary.length() == 0){
+            return decimal;
+        }else {
+            if (binary.charAt(binary.length()-1) == '1') {
+                System.out.println(binary.length()+"count");
+                return recursiveBinToDec(binary.substring(0, binary.length()-1), decimal + recursivePower( 2, binary.length()-1));
+            } else {
+                return recursiveBinToDec(binary.substring(0, binary.length()-1), decimal + 0);
+            }
         }
     }
 }
