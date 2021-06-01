@@ -12,7 +12,7 @@ public class Test {
         }*/
 
 
-        System.out.println(recursiveSum(3));
+        System.out.println(recursivePower(3, 3));
     }
 
     /*public static String recursiveMul(int n, String m) {
@@ -33,12 +33,19 @@ public class Test {
     }*/
 
     public static int recursiveSum(int n) {
-        //TODO
         if (n==1){
             return 1;
         }
         else {
             return recursiveSum(n-1)+n;
+        }
+    }
+
+    public static int recursivePower(int x, int n) {
+        if (n == 0){
+            return 1;
+        }else {
+            return recursivePower(x,n-1)*x;
         }
     }
 }
