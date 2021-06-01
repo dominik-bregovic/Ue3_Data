@@ -86,8 +86,11 @@ public class Main {
      * @return x to the power of n
      */
     public static int recursivePower(int x, int n) {
-        // TODO
-        return 0;
+        if (n == 0){
+            return 1;
+        }else {
+            return recursivePower(x,n-1)*x;
+        }
     }
 
 
