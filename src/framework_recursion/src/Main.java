@@ -49,7 +49,7 @@ public class Main {
      */
     public static String recursiveMul(int n, String m){
         if (n == 0){
-            //change direction of number 001 --> 100
+            //change direction of binNumber 001 --> 100
             char[] revertBin = m.toCharArray();
             m = "";
             for (int i = revertBin.length-1; i >= 0; i--) {
@@ -70,8 +70,13 @@ public class Main {
      * @return recursive sum of n
      */
     public static int recursiveSum(int n) {
-       //TODO
-        return 0;
+        //TODO
+        if (n==1){
+            return 1;
+        }
+        else {
+            return recursiveSum(n-1)+n;
+        }
     }
 
     /**

@@ -6,10 +6,13 @@ public class Test {
        //bin += "1";
 
        // bin = recursiveMul(13,"");
-        System.out.println(bin);
+       // System.out.println(bin);
       /*  for (int i = 0; i < bin.length(); i++) {
             System.out.println(1%2);
         }*/
+
+
+        System.out.println(recursiveSum(3));
     }
 
     /*public static String recursiveMul(int n, String m) {
@@ -29,5 +32,14 @@ public class Test {
         }
     }*/
 
+    public static int recursiveSum(int n) {
+        //TODO
+        if (n==1){
+            return 1;
+        }
+        else {
+            return recursiveSum(n-1)+n;
+        }
+    }
 }
 
