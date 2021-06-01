@@ -96,7 +96,7 @@ public class Main {
      * Converts a binary to a decimal recursively.
      * @param binary String containing the binary number
      * @param decimal resulting decimal number
-     * @return the decimal representation
+     * @return the decimal representation   
      */
     public static int recursiveBinToDec(String binary, int decimal) {
         //TODO
