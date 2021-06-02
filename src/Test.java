@@ -14,7 +14,7 @@ public class Test {
 
        // System.out.println(recursivePower(3, 3));
 
-        System.out.println(recursiveBinToDec("11010", 0));
+       // System.out.println(recursiveBinToDec("11111", 0));
 
     }
 
@@ -54,7 +54,16 @@ public class Test {
 
     //Funktion is working but is counting from the wrong side
     public static int recursiveBinToDec(String binary, int decimal) {
-        System.out.println(binary.length()+".......");
+
+        if (decimal == 0){
+            System.out.println("changing order");
+            //change direction of number 001 --> 100
+            char[] revertBin = binary.toCharArray();
+            binary = "";
+            for (int i = revertBin.length-1; i >= 0; i--)
+                binary += revertBin[i];
+        }
+
         if (binary.length() == 0){
             return decimal;
         }else {

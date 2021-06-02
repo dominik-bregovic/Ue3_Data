@@ -22,8 +22,7 @@ public class Main {
         String result="";
         switch (input_params.get(0)) {
             case "mul":
-                result= recursiveMul(Integer.valueOf(input_params.get(1)).intValue(), input_params.get(2))
-                ;
+                result= recursiveMul(Integer.valueOf(input_params.get(1)).intValue(), input_params.get(2));
                 break;
             case "sum":
                 result= Integer.toString(recursiveSum(Integer.valueOf(input_params.get(1)).intValue()));
@@ -109,10 +108,19 @@ public class Main {
      */
     public static int recursiveBinToDec(String binary, int decimal) {
 
+        if (decimal == 0){
+            //change direction of number 001 --> 100
+            char[] revertBin = binary.toCharArray();
+            binary = "";
+            for (int i = revertBin.length-1; i >= 0; i--)
+                binary += revertBin[i];
+        }
+
         if (binary.length() == 0){
             return decimal;
         }else {
             if (binary.charAt(binary.length()-1) == '1') {
+                System.out.println(binary.length()+"count");
                 return recursiveBinToDec(binary.substring(0, binary.length()-1), decimal + recursivePower( 2, binary.length()-1));
             } else {
                 return recursiveBinToDec(binary.substring(0, binary.length()-1), decimal + 0);
