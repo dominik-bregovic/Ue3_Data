@@ -107,13 +107,14 @@ public class Main {
      * @return the decimal representation   
      */
     public static int recursiveBinToDec(String binary, int decimal) {
-
         if (decimal == 0){
             //change direction of number 001 --> 100
             char[] revertBin = binary.toCharArray();
             binary = "";
-            for (int i = revertBin.length-1; i >= 0; i--)
+            for (int i = revertBin.length-1; i >= 0; i--) {
                 binary += revertBin[i];
+            }
+            // reverting finished
         }
 
         if (binary.length() == 0){
