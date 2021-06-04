@@ -22,8 +22,7 @@ public class Main {
         String result="";
         switch (input_params.get(0)) {
             case "mul":
-                result= recursiveMul(Integer.valueOf(input_params.get(1)).intValue(), input_params.get(2))
-                ;
+                result= recursiveMul(Integer.valueOf(input_params.get(1)).intValue(), input_params.get(2));
                 break;
             case "sum":
                 result= Integer.toString(recursiveSum(Integer.valueOf(input_params.get(1)).intValue()));
