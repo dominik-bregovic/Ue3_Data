@@ -40,6 +40,7 @@ public class Main {
 
     }
 
+
     /**
      * Converts a decimal to a binary recursively.
      * @param n decimal number to be converted
@@ -47,6 +48,7 @@ public class Main {
      * @return the binary number stored in a String
      */
     public static String recursiveMul(int n, String m){
+
         if (n == 0){
             //change direction of binNumber 001 --> 100
             char[] revertBin = m.toCharArray();
@@ -54,14 +56,18 @@ public class Main {
             for (int i = revertBin.length-1; i >= 0; i--) {
                 m += revertBin[i];
             }
+            // returning the bin in right order
             return m;
+
         }else {
-            if (n%2==1)
+            if (n%2==1){
                 return recursiveMul(n / 2, m += "1");
-            else
+            }else {
                 return recursiveMul(n /2,m += "0");
+            }
         }
     }
+
 
     /**
      * Recursively computes the sum of positive integer n.
@@ -69,14 +75,14 @@ public class Main {
      * @return recursive sum of n
      */
     public static int recursiveSum(int n) {
-        //TODO
+
         if (n==1){
             return 1;
-        }
-        else {
+        }else {
             return recursiveSum(n-1)+n;
         }
     }
+
 
     /**
      * Recrusively computes the power of a positive integer base x and a positive integer exponent n.
@@ -85,6 +91,7 @@ public class Main {
      * @return x to the power of n
      */
     public static int recursivePower(int x, int n) {
+
         if (n == 0){
             return 1;
         }else {
@@ -93,16 +100,33 @@ public class Main {
     }
 
 
-
     /**
      * Converts a binary to a decimal recursively.
      * @param binary String containing the binary number
      * @param decimal resulting decimal number
-     * @return the decimal representation
+     * @return the decimal representation   
      */
     public static int recursiveBinToDec(String binary, int decimal) {
-        //TODO
-        return 0;
+        if (decimal == 0){
+            //change direction of number 001 --> 100
+            char[] revertBin = binary.toCharArray();
+            binary = "";
+            for (int i = revertBin.length-1; i >= 0; i--) {
+                binary += revertBin[i];
+            }
+            // reverting finished
+        }
+
+        if (binary.length() == 0){
+            return decimal;
+        }else {
+            if (binary.charAt(binary.length()-1) == '1') {
+                System.out.println(binary.length()+"count");
+                return recursiveBinToDec(binary.substring(0, binary.length()-1), decimal + recursivePower( 2, binary.length()-1));
+            } else {
+                return recursiveBinToDec(binary.substring(0, binary.length()-1), decimal + 0);
+            }
+        }
     }
 
 
